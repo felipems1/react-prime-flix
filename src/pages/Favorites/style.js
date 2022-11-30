@@ -19,13 +19,15 @@ export const List = styled.ul`
 export const Movie = styled.li`
   list-style: none;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  margin: 0 20px;
   margin-bottom: 14px;
 `;
 
 export const MovieTitle = styled.span`
   font-size: 18px;
+  margin-right: 25px;
 `;
 
 export const Details = styled.div`
