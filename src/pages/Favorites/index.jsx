@@ -9,9 +9,21 @@ const Favorites = () => {
     const myList = localStorage.getItem("@primeflix");
     setMovies(JSON.parse(myList) || []);
   }, []);
+
+  const handleDelete = (id) => {
+    let filterMovies = movies.filter((item) => {
+      return item.id !== id;
+    });
+    setMovies(filterMovies);
+    localStorage.setItem("@primeflix", JSON.stringify(filterMovies));
+  };
+
   return (
     <C.MyMovies>
       <C.Title>TELA DE FAVORITOS</C.Title>
+      {movies.length === 0 && (
+        <C.NotList>Você não possui nenhum filme salvo. 😟</C.NotList>
+      )}
       <C.List>
         {movies.map((item) => {
           return (
@@ -19,7 +31,9 @@ const Favorites = () => {
               <C.MovieTitle>{item.title}</C.MovieTitle>
               <C.Details>
                 <Link to={`/filme/${item.id}`}>Ver Detalhes</Link>
-                <C.Button>Excluir</C.Button>
+                <C.Button onClick={() => handleDelete(item.id)}>
+                  Excluir
+                </C.Button>
               </C.Details>
             </C.Movie>
           );
