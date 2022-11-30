@@ -42,6 +42,9 @@ export const Details = styled.div`
 
 export const Button = styled.button`
   cursor: pointer;
+  border: 0;
+  padding: 8px;
+  border-radius: 5px;
 `;
 
 export const NotList = styled.span``;

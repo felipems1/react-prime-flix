@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import api from "../../services/api";
 import { Link } from "react-router-dom";
+import api from "../../services/api";
 import * as C from "./style";
 
 const Home = () => {

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import * as C from "./style";
-
 import api from "../../services/api";
+import { toast } from "react-toastify";
 
 const Movie = () => {
   const navigate = useNavigate();
@@ -44,13 +44,13 @@ const Movie = () => {
     );
 
     if (hasMovie) {
-      alert("ESSE FILME JÀ ESTA NA LISTA!");
+      toast.warn("Esse filme já está na sua lista!");
       return;
     }
 
     savedMovies.push(movie);
     localStorage.setItem("@primeflix", JSON.stringify(savedMovies));
-    alert("FILME SALVO COM SUCESSO!");
+    toast.success("Filme salvo com sucesso!");
   };
 
   if (loading) {
